@@ -1,0 +1,391 @@
+/* Container chính */
+.song-list {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  
+  /* Header */
+  h1 {
+    color: #1DB954;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 700;
+  }
+  
+  /* Phần controls (Search và Add button) */
+  .controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* Container cho ô tìm kiếm */
+  .search-container {
+    flex: 3;
+    position: relative;
+  }
+  
+  /* Ô input tìm kiếm */
+  .search-input {
+    width: 85%;
+    padding: 15px 20px;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: white;
+  }
+  
+  .search-input:focus {
+    border-color: #1DB954;
+    box-shadow: 0 2px 8px rgba(29,185,84,0.2);
+  }
+  
+  .search-input::placeholder {
+    color: #888;
+    font-size: 16px;
+  }
+  
+  /* Nút thêm bài hát */
+  .add-button {
+    flex: 0.5;
+    background: #1DB954;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    min-width: fit-content;
+    box-shadow: 0 2px 4px rgba(29,185,84,0.2);
+  }
+  
+  .add-button:hover {
+    background: #1ed760;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(29,185,84,0.3);
+  }
+  
+  .add-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(29,185,84,0.2);
+  }
+  
+  /* Container cho bảng */
+  .table-container {
+    overflow-x: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  /* Styles cho bảng */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+  }
+  
+  /* Header của bảng */
+  th {
+    background-color: #1DB954;
+    color: white;
+    font-weight: 600;
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Cells của bảng */
+  td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  /* Hover effect cho rows */
+  tr:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Row cuối cùng */
+  tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* First column (STT) */
+  td:first-child, 
+  th:first-child {
+    padding-left: 20px;
+    width: 60px;
+  }
+  
+  /* Status styles */
+  .loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 16px;
+  }
+  
+  .error-message {
+    text-align: center;
+    padding: 20px;
+    color: #dc3545;
+    background: #fff;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(220,53,69,0.1);
+  }
+  
+  .no-data {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    font-style: italic;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .song-list {
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 2em;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .controls {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .search-input {
+      padding: 12px 15px;
+      font-size: 16px;
+    }
+  
+    .add-button {
+      width: auto;
+      align-self: flex-end;
+      padding: 8px 15px;
+    }
+  
+    th, td {
+      padding: 12px 10px;
+      font-size: 13px;
+    }
+  
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .song-list {
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 1.5em;
+    }
+  
+    .search-input {
+      font-size: 14px;
+    }
+  
+    th, td {
+      padding: 10px 8px;
+      font-size: 12px;
+    }
+  
+    td:first-child, 
+    th:first-child {
+      padding-left: 10px;
+      width: 40px;
+    }
+  }
+  
+  /* Custom scrollbar cho table container */
+  .table-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background: #1DB954;
+    border-radius: 4px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: #1ed760;
+  }
+
+  .publish-button {
+    background: #1DB954;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s ease;
+  }
+  
+  .publish-button:hover {
+    background: #1ed760;
+    transform: translateY(-1px);
+  }
+  
+  .publish-button:active {
+    transform: translateY(0);
+  }
+  
+  /* Style cho modal */
+  .modal-content {
+    border-radius: 15px;
+  }
+  
+  .modal-header {
+    background-color: #1DB954;
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .modal-header .close {
+    color: white;
+  }
+  
+  .modal-footer .btn-success {
+    background-color: #1DB954;
+    border-color: #1DB954;
+  }
+  
+  .modal-footer .btn-success:hover {
+    background-color: #1ed760;
+    border-color: #1ed760;
+  } 
+
+  .now-playing {
+    background: #282828;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    min-width: 200px;
+    max-width: 300px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .now-playing-label {
+    font-size: 12px;
+    color: #1DB954;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .playing-icon {
+    font-size: 10px;
+    animation: pulse 1s infinite;
+  }
+  
+  .now-playing-info {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Style cho tên bài hát có thể click */
+  .song-name-link {
+    color: #1DB954;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .song-name-link:hover {
+    color: #1ed760;
+    text-decoration: underline;
+  }
+  
+  /* Animation cho icon playing */
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .controls {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .now-playing {
+      order: -1; /* Hiển thị trên cùng khi ở mobile */
+      max-width: 100%;
+    }
+  }
+
+  /* Custom styles cho Toastify */
+.Toastify__toast {
+  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.Toastify__toast--success {
+  background: #1DB954 !important;
+}
+
+.Toastify__toast--error {
+  background: #E74C3C !important;
+}
+
+.Toastify__toast--info {
+  background: #2980B9 !important;
+}
+
+.Toastify__progress-bar {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.Toastify__close-button {
+  color: white !important;
+  opacity: 0.7;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1;
+}
