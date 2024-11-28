@@ -8,7 +8,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import './SongList.css';
 
 const SongList = () => {
-  // States
   const [songs, setSongs] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [originalSongs, setOriginalSongs] = useState([]);
@@ -19,12 +18,10 @@ const SongList = () => {
   const [selectedSong, setSelectedSong] = useState(null);
   const [playingSong, setPlayingSong] = useState(null);
 
-  // Fetch dữ liệu khi component mount
   useEffect(() => {
     fetchSongs();
   }, []);
 
-  // Hàm fetch dữ liệu
   const fetchSongs = async () => {
     try {
       setIsLoading(true);
